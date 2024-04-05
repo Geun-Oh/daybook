@@ -1,7 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import babel from "vite-plugin-babel";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  plugins: [
+    babel({
+      babelConfig: {
+        plugins: ["@emotion/babel-plugin"],
+      },
+    }),
+    react({ jsxImportSource: "@emotion/react" }),
+  ],
+});
