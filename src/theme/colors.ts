@@ -1,0 +1,17 @@
+export const colors = {
+  white: "#FFFFFF",
+  grey10: "#F3F3F3",
+  grey20: "#DDDDDD",
+  grey30: "#BBBBBB",
+  grey40: "#818181",
+  grey50: "#606060",
+  grey60: "#454545",
+  grey70: "#303030",
+  black: "#1A1A1A",
+  primaryLight: "#728B5F",
+  primary: "#4D6C38",
+  primaryDark: "#304125",
+  secondaryLight: "#E08686",
+  secondary: "#B84D4D",
+  secondaryDarK: "#9C2F2F",
+} as const;
