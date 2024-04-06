@@ -1,6 +1,6 @@
-import Header from '@components/Header';
-import styled from '@emotion/styled';
-import MyWritingSwiper from '@components/MyWritingSwiper';
+import Header from "@components/Header";
+import styled from "@emotion/styled";
+import MyWritingSwiper from "@components/MyWritingSwiper";
 
 const MyDaybookPage = () => {
   return (
