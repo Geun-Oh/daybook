@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { getDaybookList } from "@api";
 import { GetDaybookResponse } from "@api/response";
 import LoadingSpinner from "./LoadingSpinner";
+import NoWritings from "./NoWritings";
 
 const MyWritingSwiper = () => {
   const [data, setData] = useState<GetDaybookResponse[]>([]);
@@ -31,6 +32,8 @@ const MyWritingSwiper = () => {
   }, []);
 
   if (isLoading) return <LoadingSpinner />;
+
+  if (data.length === 0) return <NoWritings />
 
   return (
     <>
