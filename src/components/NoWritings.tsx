@@ -1,9 +1,12 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 const NoWritings = () => {
     return (
         <Wrapper>
-            <img src="/src/assets/images/no_writings.png" alt="no writings" width={'298px'} />
+            <Link to={'/write'}>
+                <img src="/src/assets/images/no_writings.png" alt="no writings" width={'298px'} />
+            </Link>
         </Wrapper>
     );
 };
