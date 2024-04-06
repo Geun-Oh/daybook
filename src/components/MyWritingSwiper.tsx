@@ -24,16 +24,11 @@ const MyWritingSwiper = () => {
       setIsLoading(true);
 
       const { data } = await getDaybookList();
-      console.log("RES");
-      console.log(data);
       setData(data);
 
       setIsLoading(false);
     })();
   }, []);
-
-  console.log("====");
-  console.log(data);
 
   if (isLoading) return <LoadingSpinner />;
 
