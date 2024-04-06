@@ -1,18 +1,15 @@
-import styled from "@emotion/styled";
+import useImageDownload from "../hooks/useImageDownload";
 import Daybook from "../components/Daybook";
 
 const ImageDownloadPage = () => {
+  const { target, asyncDownload } = useImageDownload();
+
   return (
-    <Wrapper>
-      <Daybook />
-    </Wrapper>
+    <>
+      <Daybook ref={target} />
+      <button onClick={asyncDownload}>다운</button>
+    </>
   );
 };
 
 export default ImageDownloadPage;
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;

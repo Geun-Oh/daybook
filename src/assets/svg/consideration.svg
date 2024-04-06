@@ -1,0 +1,10 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="36" cy="23.6533" r="3" stroke="#303030" stroke-width="2"/>
+<circle cx="12" cy="23.6533" r="3" stroke="#303030" stroke-width="2"/>
+<path d="M16.4898 34.9463V32.9329C18.0578 30.6398 21.583 25.3154 23.1402 22.3624C24.6974 19.4094 23.789 18.2237 23.1402 18L14.0567 28.2349H6.697C5.20749 28.2349 4 29.4424 4 30.9319V43H16.4898V39.3087" stroke="#303030" stroke-width="2" stroke-linejoin="bevel"/>
+<path d="M8.04492 32.4644V42.9152" stroke="#303030" stroke-width="2" stroke-linejoin="bevel"/>
+<path d="M31.5102 34.9463V32.9329C29.9422 30.6398 26.417 25.3154 24.8598 22.3624C23.3026 19.4094 24.211 18.2237 24.8598 18L33.9433 28.2349H41.303C42.7925 28.2349 44 29.4424 44 30.9319V43H31.5102V39.3087" stroke="#303030" stroke-width="2" stroke-linejoin="bevel"/>
+<path d="M39.9551 32.4644V42.9152" stroke="#303030" stroke-width="2" stroke-linejoin="bevel"/>
+<path d="M23.8906 6V12.0682" stroke="#303030" stroke-width="2" stroke-linejoin="bevel"/>
+<path d="M16.6426 10.8882L19.3396 13.5852M31.6446 10.8882L28.442 14.0909" stroke="#303030" stroke-width="2" stroke-linejoin="bevel"/>
+</svg>

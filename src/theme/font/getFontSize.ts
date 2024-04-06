@@ -85,6 +85,7 @@ const getFontStyle = (variety: Variety) => {
     font-size: ${`${fontSize}px`};
     font-weight: ${fontWeight};
     line-height: ${`${lineHeight}px`};
+    font-family: 'Nanum Myeongjo', serif;
   `;
 };
 
