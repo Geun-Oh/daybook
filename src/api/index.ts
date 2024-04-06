@@ -6,8 +6,9 @@ import {
   REACTION_TYPE,
   ReactionsResponse,
 } from "./response";
+import { isAxiosError } from "axios";
 
-interface Response<T> {
+export interface Response<T> {
   status: number;
   data: T;
   timestamp: Date;
@@ -46,14 +47,20 @@ export const postReactions = async (
   reactionType: keyof typeof REACTION_TYPE,
   boardId: number
 ) => {
-  const { data } = await client.post<Response<ReactionsResponse>>(
-    `/reactions`,
-    {
-      reactionType,
-      boardId,
+  try {
+    const { data } = await client.post<Response<ReactionsResponse>>(
+      `/reactions`,
+      {
+        reactionType,
+        boardId,
+      }
+    );
+    return data;
+  } catch (err) {
+    if (isAxiosError(err)) {
+      return err.response?.data;
     }
-  );
-  return data;
+  }
 };
 
 export const getRandomDaybooks = async () => {

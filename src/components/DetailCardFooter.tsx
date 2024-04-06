@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import getFontStyle from "@theme/font/getFontSize";
 import { colors } from "@theme";
-import { postReactions } from "@api";
+import { Response, postReactions } from "@api";
 import { REACTION_TYPE, ReactionObject } from "@api/response";
 import { getReactionCount } from "@utils/getReactionCount";
 
@@ -13,10 +13,12 @@ interface DetailCardFooterProps {
 const DetailCardFooter = ({ boardId, reactions }: DetailCardFooterProps) => {
 
     const post = async (reactionType: keyof typeof REACTION_TYPE, id: number) => {
-        const res = await postReactions(reactionType, id);
+        const res = (await postReactions(reactionType, id)) as Response<unknown>;
         if (res.status === 409) {
-            alert("이미 공감한 글입니다!")
+            window.alert('이미 공감한 글입니다!')
+            return;
         }
+        window.location.reload();     
     }
 
     const { ADMIRE, GREAT, MOVING } = getReactionCount(reactions);
