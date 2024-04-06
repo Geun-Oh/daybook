@@ -17,17 +17,22 @@ const HomeSwiper = () => {
   const [data, setData] = useState<GetDaybookResponse[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     (async () => {
+      setIsLoading(true);
+
       const { data } = await getRandomDaybooks();
       setData(data);
+
+      setIsLoading(false);
     })();
   }, []);
 
-  if (!data?.length) return <LoadingSpinner />;
-
   return (
     <>
+      {isLoading && <LoadingSpinner />}
       <Swiper
         css={css`
           margin-top: 30px;

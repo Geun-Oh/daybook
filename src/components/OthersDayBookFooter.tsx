@@ -6,9 +6,7 @@ const OthersWritingFooter = () => {
   return (
     <Footer>
       <div>
-        <Link to={'/write'}>
-          나도 일지 작성하기
-        </Link>
+        <Link to={"/write"}>나도 일지 작성하기</Link>
       </div>
     </Footer>
   );
@@ -43,7 +41,7 @@ const Footer = styled.footer`
     display: flex;
     justify-content: center;
     align-items: center;
-  
+
     max-width: 362px;
   }
 `;

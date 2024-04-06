@@ -10,51 +10,56 @@ import { getDaybook } from "@api";
 import LoadingSpinner from "./LoadingSpinner";
 
 const OthersWriting = () => {
+  const { id } = useParams();
 
-    const { id } = useParams();
+  const [daybookData, setDaybookData] = useState<GetDaybookResponse | null>(
+    null
+  );
 
-    const [daybookData, setDaybookData] = useState<GetDaybookResponse | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-    const getData = async (id: string) => {
-        const res = await getDaybook(id);
-        if (!res || !res.data) return;
+  const getData = async (id: string) => {
+    setIsLoading(true);
 
-        setDaybookData(res.data);
+    try {
+      const res = await getDaybook(id);
+      if (!res || !res.data) return;
+      setDaybookData(res.data);
+    } finally {
+      setIsLoading(false);
     }
+  };
 
-    useEffect(() => {
-        if (!id) return;
+  useEffect(() => {
+    if (!id) return;
 
-        getData(id);
-    }, [id]);
+    getData(id);
+  }, [id]);
 
-    if (!daybookData) return <LoadingSpinner />;
-
-    return (
-        <>
-            <Header>
-                <Header.Button variety="back" />
-                다른 사람 일지
-            </Header>
-
-            <Wrapper>
-                {daybookData && <Card isDetail daybook={daybookData} />}
-            </Wrapper>
-
-            <OthersWritingFooter />
-        </>
-    );
+  return (
+    <>
+      {isLoading && <LoadingSpinner />}
+      <Header>
+        <Header.Button variety="back" />
+        다른 사람 일지
+      </Header>
+      <Wrapper>
+        {daybookData && <Card isDetail daybook={daybookData} />}
+      </Wrapper>
+      <OthersWritingFooter />
+    </>
+  );
 };
 
 export default OthersWriting;
 
 const Wrapper = styled.div`
-    width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    ${fadeLeftDelayAnimation};
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${fadeLeftDelayAnimation};
+`;
