@@ -30,9 +30,10 @@ const MyWritingSwiper = () => {
     })();
   }, []);
 
+  if (isLoading) return <LoadingSpinner />;
+
   return (
     <>
-      {isLoading && <LoadingSpinner />}
       <Swiper
         css={css`
           margin-top: 30px;

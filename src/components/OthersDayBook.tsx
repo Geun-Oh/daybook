@@ -36,9 +36,10 @@ const OthersWriting = () => {
     getData(id);
   }, [id]);
 
+  if (isLoading) return <LoadingSpinner />;
+
   return (
     <>
-      {isLoading && <LoadingSpinner />}
       <Header>
         <Header.Button variety="back" />
         다른 사람 일지
