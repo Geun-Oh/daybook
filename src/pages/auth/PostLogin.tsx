@@ -2,6 +2,7 @@ import Button from '@components/Button';
 import { css } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import background from '../../assets/images/background_landing.png';
+import kakao from '../../assets/images/kakao_landing_after.png';
 
 const PostLogin = () => {
   return (
@@ -27,11 +28,7 @@ const PostLogin = () => {
           }
         `}
       >
-        <img
-          src="/src/assets/images/kakao_landing_after.png"
-          alt="kakao login complete background"
-          width={'100%'}
-        />
+        <img src={kakao} alt="kakao login complete background" width={'100%'} />
       </section>
       <div
         css={css`

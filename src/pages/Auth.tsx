@@ -1,27 +1,25 @@
-import { useEffect, useState } from "react";
-import PreLogin from "./auth/PreLogin";
-import PostLogin from "./auth/PostLogin";
+import { useEffect, useState } from 'react';
+import PreLogin from './auth/PreLogin';
+import PostLogin from './auth/PostLogin';
 
-export type LandingFunnelStateProps = "pre-login" | "post-login";
+export type LandingFunnelStateProps = 'pre-login' | 'post-login';
 
 const Auth = () => {
+  const [landingFunnelState, setLandingFunnelState] =
+    useState<LandingFunnelStateProps>('pre-login');
 
-    const [landingFunnelState, setLandingFunnelState] = useState<LandingFunnelStateProps>("pre-login");
+  const userId = localStorage.getItem('userId');
 
-    const userId = localStorage.getItem('userId')
+  useEffect(() => {
+    if (!userId) return;
+    setLandingFunnelState('post-login');
+  }, [userId]);
 
-    useEffect(() => {
-        if (!userId) return;
-        setLandingFunnelState("post-login")
-    }, [userId]);
+  if (landingFunnelState === 'post-login') {
+    return <PostLogin />;
+  }
 
-    if (landingFunnelState === 'post-login') {
-        return <PostLogin />
-    }
-
-    return (
-        <PreLogin setLandingFunnelState={setLandingFunnelState} />
-    );
+  return <PreLogin setLandingFunnelState={setLandingFunnelState} />;
 };
 
 export default Auth;
