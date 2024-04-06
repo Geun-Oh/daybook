@@ -1,17 +1,17 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 
-import { Navigation } from 'swiper/modules';
-import Card from './Card';
-import SwiperFooter from './SwiperFooter';
-import { useEffect, useState } from 'react';
-import { getDaybookList } from '@api';
-import { GetDaybookResponse } from '@api/response';
-import LoadingSpinner from './LoadingSpinner';
+import { Navigation } from "swiper/modules";
+import Card from "./Card";
+import SwiperFooter from "./SwiperFooter";
+import { useEffect, useState } from "react";
+import { getDaybookList } from "@api";
+import { GetDaybookResponse } from "@api/response";
+import LoadingSpinner from "./LoadingSpinner";
 
 const MyWritingSwiper = () => {
   const [data, setData] = useState<GetDaybookResponse[]>([]);
@@ -24,7 +24,7 @@ const MyWritingSwiper = () => {
     })();
   }, []);
 
-  if (data.length < 1) return <LoadingSpinner />;
+  if (!data?.length) return <LoadingSpinner />;
 
   return (
     <>
@@ -53,7 +53,7 @@ const MyWritingSwiper = () => {
             <Card isCurrent={currentIndex === i} daybook={daybook} />
           </CardSlide>
         ))}
-        <SwiperFooter maxIndex={data.length} currentIndex={currentIndex} />
+        <SwiperFooter maxIndex={data?.length} currentIndex={currentIndex} />
       </Swiper>
     </>
   );

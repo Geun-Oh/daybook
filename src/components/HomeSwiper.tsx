@@ -9,7 +9,6 @@ import { Navigation } from "swiper/modules";
 import Card from "./Card";
 import SwiperFooter from "./SwiperFooter";
 import { useEffect, useState } from "react";
-import { fadeLeftDelayAnimation } from "@theme/animation";
 import { GetDaybookResponse } from "@api/response";
 import { getRandomDaybooks } from "@api";
 import LoadingSpinner from "./LoadingSpinner";
@@ -25,7 +24,7 @@ const HomeSwiper = () => {
     })();
   }, []);
 
-  if (data.length < 1) return <LoadingSpinner />;
+  if (!data?.length) return <LoadingSpinner />;
 
   return (
     <>
@@ -49,12 +48,12 @@ const HomeSwiper = () => {
         className="mySwiper"
         onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
       >
-        {data.map((x, i) => (
+        {data?.map((x, i) => (
           <CardSlide key={i}>
             <Card isHome isCurrent={i === currentIndex} daybook={x} />
           </CardSlide>
         ))}
-        <SwiperFooter maxIndex={data.length} currentIndex={currentIndex} />
+        <SwiperFooter maxIndex={data?.length} currentIndex={currentIndex} />
       </Swiper>
     </>
   );
@@ -67,5 +66,4 @@ const CardSlide = styled(SwiperSlide)`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* ${fadeLeftDelayAnimation} */
 `;
