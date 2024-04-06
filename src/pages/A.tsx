@@ -1,7 +1,9 @@
+import TestSwiper from "../components/TestSwiper";
+
 const A = () => {
     return (
         <div>
-            A
+           <TestSwiper /> 
         </div>
     )
 }

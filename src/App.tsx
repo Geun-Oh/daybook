@@ -1,18 +1,21 @@
-import { css } from "@emotion/react";
+import Router from "./Router";
+import styled from '@emotion/styled';
 
 function App() {
   return (
-    <div
-      css={css`
-        padding: 32px;
-        background-color: hotpink;
-        font-size: 24px;
-        border-radius: 4px;
-      `}
-    >
-      emotion test
-    </div>
+    <>
+      <Layout>
+        <Router />
+      </Layout>
+    </>
   );
 }
 
 export default App;
+
+const Layout = styled.div`
+    max-width: 768px;
+    width: 100vw;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+`
