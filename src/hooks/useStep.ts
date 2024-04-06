@@ -79,6 +79,7 @@ export const StepContentMap = new Map<StepType, StepContent>([
 const useStep = () => {
   const navigate = useNavigate();
 
+  const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState<StepType>(STEP.선택);
   const daybook = useAtomValue(daybookAtom);
   const paperType = useAtomValue(paperTypeState);
@@ -94,11 +95,14 @@ const useStep = () => {
 
     // 일지 API 전송
     if (nextStep === STEP.완료) {
+      setIsLoading(true);
       try {
         await postDaybook({ ...daybook, paperType: paperType as PaperType });
       } catch {
         alert('일시적인 오류가 발생했습니다. 😳');
         navigate('/', { replace: true });
+      } finally {
+        setIsLoading(false);
       }
     }
 
@@ -117,7 +121,7 @@ const useStep = () => {
     setStep(previousStep);
   };
 
-  return { step, nextStep, previousStep };
+  return { isLoading, step, nextStep, previousStep };
 };
 
 export default useStep;

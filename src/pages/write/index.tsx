@@ -16,6 +16,7 @@ import { RESET } from 'jotai/utils';
 import { fadeLeftAnimation } from '@theme/animation';
 import { useSearchParams } from 'react-router-dom';
 import { paperTypeState } from '@state/paperType';
+import LoadingSpinner from '@components/LoadingSpinner';
 
 const STEP_COMPONENTS = {
   [STEP.선택]: 선택,
@@ -26,7 +27,7 @@ const STEP_COMPONENTS = {
 };
 
 function Write() {
-  const { step, nextStep, previousStep } = useStep();
+  const { isLoading, step, nextStep, previousStep } = useStep();
   const [searchParams] = useSearchParams();
   const query = searchParams.get('from');
 
@@ -53,6 +54,7 @@ function Write() {
 
   return (
     <>
+      {isLoading && <LoadingSpinner />}
       <Header title="일지 작성하기">
         {step !== '완료' && (
           <Header.Button variety="back" onClick={previousStep} />
