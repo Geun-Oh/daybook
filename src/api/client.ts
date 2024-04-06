@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const client = axios.create({
-  baseURL: "http://13.125.171.40:8080/",
+  baseURL: process.env.VITE_APP_BASE_URL ,
   headers: {
     "Content-Type": "application/json",
   },
