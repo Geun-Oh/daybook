@@ -66,8 +66,6 @@ const Wrapper = styled.div`
 
 const Footer = styled.footer`
   width: calc(100% - 32px);
-  position: absolute;
-  bottom: 0;
   max-width: 768px;
   height: 100px;
 
