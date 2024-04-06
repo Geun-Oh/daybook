@@ -2,6 +2,7 @@ import { Global } from '@emotion/react';
 import emotionNormalize from 'emotion-normalize';
 import { css } from '@emotion/react';
 import { colors } from './colors';
+import background from '../assets/images/background.png';
 
 function GlobalStyles() {
   const globalStyle = css`
@@ -14,7 +15,7 @@ function GlobalStyles() {
       font-family: 'Nanum Myeongjo', serif;
       font-weight: 700;
 
-      background-image: url('/src/assets/images/background.png');
+      background-image: url(${background});
       background-size: cover;
       overflow: hidden;
     }

@@ -16,6 +16,9 @@ import hashtagIcon, { HashTagType } from '@assets/svg';
 import useImageDownload from '@hooks/useImageDownload';
 import { deleteDaybookById } from '@api';
 
+import monunImage from '../assets/images/monun_background.png';
+import linenoteImage from '../assets/images/linenote_background.png';
+
 interface Props {
   daybook: GetDaybookResponse;
   isHome?: boolean;
@@ -30,7 +33,15 @@ const Card = ({
   isCurrent = true,
 }: Props) => {
   const { target, asyncDownload } = useImageDownload();
-  const { hearts, paperType, createdAt, content, hashtags, boardId, reactions } = daybook;
+  const {
+    hearts,
+    paperType,
+    createdAt,
+    content,
+    hashtags,
+    boardId,
+    reactions,
+  } = daybook;
   const hashtag = hashtags[0] as HashTagType;
   const Icon = hashtagIcon[hashtag];
 
@@ -80,8 +91,8 @@ const Card = ({
           opacity: ${!isCurrent ? 0.5 : 1};
 
           background-image: ${paperType === '모눈종이'
-            ? css`url('/src/assets/images/monun_background.png')`
-            : css`url('/src/assets/images/linenote_background.png')`};
+            ? css`url(${monunImage})`
+            : css`url(${linenoteImage})`};
         `}
       >
         <CardHeader>

@@ -6,6 +6,9 @@ import { paperTypeState } from '@state/paperType';
 import { fadeLeftAnimation } from '@theme/animation';
 import { useAtom, useAtomValue } from 'jotai';
 
+import memo from '../../assets/images/memo.png';
+import monun from '../../assets/images/monun.png';
+
 function 쓰기() {
   const paperTypeAtom = useAtomValue(paperTypeState);
   const [daybook, setDaybook] = useAtom(daybookAtom);
@@ -18,10 +21,10 @@ function 쓰기() {
             ? css`
                 line-height: 30.24px;
                 padding-left: 40px;
-                background-image: url('/src/assets/images/memo.png');
+                background-image: url(${memo});
               `
             : css`
-                background-image: url('/src/assets/images/monun.png');
+                background-image: url(${monun});
               `};
         `}
         value={daybook?.content}

@@ -1,6 +1,7 @@
 import Button from '@components/Button';
 import { css } from '@emotion/react';
 import { Link } from 'react-router-dom';
+import background from '../../assets/images/background_landing.png';
 
 const PostLogin = () => {
   return (
@@ -11,7 +12,7 @@ const PostLogin = () => {
         height: 100vh;
         position: relative;
 
-        background-image: url('/src/assets/images/background_landing.png');
+        background-image: url(${background});
         background-size: cover;
       `}
     >
