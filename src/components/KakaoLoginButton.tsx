@@ -11,7 +11,7 @@ const KAKAO_LOGIN_URL =
   'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=' +
   '438d6de445dd4c2a8c586267854e887c' +
   '&redirect_uri=' +
-  `${process.env.NODE_ENV === 'development' ? "http://localhost:5173" : "https://daybook.site"}/auth` +
+  `${import.meta.env.NODE_ENV === 'development' ? "http://localhost:5173" : "https://daybook.site"}/auth` +
   '&scope=';
 
 const login = async (code: string, setUserId: (id: number) => void) => {
