@@ -1,18 +1,18 @@
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
-import { daybookAtom } from '@state/daybook';
-import { colors } from '@theme';
-import { fadeLeftAnimation } from '@theme/animation';
-import getFontStyle from '@theme/font/getFontSize';
-import { useAtom } from 'jotai';
-import TakeSVG from '@assets/svg/take.svg?react';
-import GiveSVG from '@assets/svg/give.svg?react';
-import SeeSVG from '@assets/svg/see.svg?react';
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+import { daybookAtom } from "@state/daybook";
+import { colors } from "@theme";
+import { fadeLeftAnimation } from "@theme/animation";
+import getFontStyle from "@theme/font/getFontSize";
+import { useAtom } from "jotai";
+import TakeSVG from "@assets/svg/take.svg?react";
+import GiveSVG from "@assets/svg/give.svg?react";
+import SeeSVG from "@assets/svg/see.svg?react";
 
 const data = new Map([
-  ['내가 다른 사람에게 주었어요', TakeSVG],
-  ['내가 다른 사람에게 받았어요', GiveSVG],
-  ['내가 다른 사람이 주는 것을 보았어요', SeeSVG],
+  ["내가 다른 사람에게 주었어요", TakeSVG],
+  ["내가 다른 사람에게 받았어요", GiveSVG],
+  ["내가 다른 사람이 주는 것을 보았어요", SeeSVG],
 ]);
 
 function 탄생() {
@@ -30,6 +30,11 @@ function 탄생() {
               css`
                 color: ${colors.white};
                 background-color: ${colors.primary};
+                svg {
+                  path {
+                    color: ${colors.white};
+                  }
+                }
               `}
             `}
             onClick={() => {
@@ -64,7 +69,7 @@ const Item = styled.li`
   text-align: center;
   padding: 16px 0;
   color: ${colors.grey40};
-  ${getFontStyle('header4')};
+  ${getFontStyle("header4")};
 
   &:not(:first-of-type) {
     margin-top: 16px;

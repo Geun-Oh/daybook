@@ -1,29 +1,29 @@
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
-import getFontStyle from '@theme/font/getFontSize';
-import Header from '@components/Header';
-import HomeSwiper from '@components/HomeSwiper';
-import HumanSVG from '@assets/svg/human.svg?react';
-import AddIconSVG from '@assets/svg/ico_add.svg?react';
-import { colors } from '@theme';
-import { Link } from 'react-router-dom';
-import headerImage from '../assets/images/home_header.png';
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
+import getFontStyle from "@theme/font/getFontSize";
+import Header from "@components/Header";
+import HomeSwiper from "@components/HomeSwiper";
+import HumanSVG from "@assets/svg/human.svg?react";
+import AddIconSVG from "@assets/svg/ico_add.svg?react";
+import { colors } from "@theme";
+import { Link } from "react-router-dom";
+import headerImage from "../assets/images/home_header.png";
 
 const Home = () => {
   return (
     <Wrapper>
       <Header>
-        <img src={headerImage} alt="home_header" width={'160px'} />
+        <img src={headerImage} alt="home_header" width={"160px"} />
       </Header>
       <p
         css={css`
           margin-left: 16px;
           margin-top: 20px;
           white-space: pre-wrap;
-          ${getFontStyle('header1')}
+          ${getFontStyle("header1")}
         `}
       >
-        {`현재 3명의` + '\n' + '일지를 볼 수 있어요'}
+        {`현재 3명의` + "\n" + "일지를 볼 수 있어요"}
       </p>
 
       <HomeSwiper />
@@ -34,12 +34,17 @@ const Home = () => {
           margin-right: 16px;
         `}
       >
-        <Link to={'/my'}>
-          <button>
+        <Link to={"/my"}>
+          <button
+            css={css`
+              border: 1px solid ${colors.primary};
+              background-color: transparent;
+            `}
+          >
             <HumanSVG />내 일지보기
           </button>
         </Link>
-        <Link to={'/write'}>
+        <Link to={"/write"}>
           <button
             css={css`
               background-color: ${colors.primaryDark};
