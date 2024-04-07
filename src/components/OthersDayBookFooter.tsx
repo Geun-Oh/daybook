@@ -20,8 +20,8 @@ export default OthersWritingFooter;
 
 const Footer = styled.footer`
   width: 100%;
-  position: absolute;
-  bottom: 0;
+  /* position: absolute;
+  bottom: 0; */
   max-width: 768px;
   height: 100px;
 
