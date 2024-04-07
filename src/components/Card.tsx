@@ -18,6 +18,7 @@ import { deleteDaybookById } from '@api';
 
 import monunImage from '../assets/images/monun_background.png';
 import linenoteImage from '../assets/images/linenote_background.png';
+import { useLocation } from 'react-router-dom';
 
 interface Props {
   daybook: GetDaybookResponse;
@@ -44,6 +45,8 @@ const Card = ({
   } = daybook;
   const hashtag = hashtags[0] as HashTagType;
   const Icon = hashtagIcon[hashtag];
+  
+  const location = useLocation();
 
   const deleteDaybook = async (id: number) => {
     if (confirm('정말 삭제하시겠습니까?') === true) {
@@ -99,7 +102,7 @@ const Card = ({
           <span>{hashtags[0]}</span>
           <div>
             <DownloadIconSVG onClick={asyncDownload} />
-            <DeleteSVG onClick={() => deleteDaybook(boardId)} />
+            {location.pathname === '/my' && <DeleteSVG onClick={() => deleteDaybook(boardId)} />}
           </div>
         </CardHeader>
         <CardMain readOnly value={content} />
