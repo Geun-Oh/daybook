@@ -2,11 +2,15 @@ import styled from "@emotion/styled";
 import { colors } from "@theme";
 import { Link } from "react-router-dom";
 
-const OthersWritingFooter = () => {
+interface OthersWritingFooterProps {
+  id: number;
+}
+
+const OthersWritingFooter = ({ id }: OthersWritingFooterProps) => {
   return (
     <Footer>
       <div>
-        <Link to={"/write"}>나도 일지 작성하기</Link>
+        <Link to={`/write?id=${id}`}>나도 일지 작성하기</Link>
       </div>
     </Footer>
   );

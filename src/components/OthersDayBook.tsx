@@ -47,7 +47,7 @@ const OthersWriting = () => {
       <Wrapper>
         {daybookData && <Card isDetail daybook={daybookData} />}
       </Wrapper>
-      <OthersWritingFooter />
+      <OthersWritingFooter id={Number(id)} />
     </>
   );
 };

@@ -30,6 +30,7 @@ function Write() {
   const { isLoading, step, nextStep, previousStep } = useStep();
   const [searchParams] = useSearchParams();
   const query = searchParams.get("from");
+  const id = searchParams.get("id");
 
   const StepComponent = STEP_COMPONENTS[step];
   const { title, description, buttonText } = StepContentMap.get(
@@ -49,8 +50,17 @@ function Write() {
   };
 
   useEffect(() => {
-    setDaybook(RESET);
-  }, [setDaybook]);
+    if (!id) {
+      setDaybook(RESET);
+    } else {
+      setDaybook({
+        respectBoardId: Number(id),
+        content: '',
+        category: '',
+        hashtags: [],
+      })
+    }
+  }, [setDaybook, id]);
 
   if (isLoading) return <LoadingSpinner />;
 
